@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Proposta Comercial — Kelly Moraes</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --navy:   #0D1F3C;
+      --accent: #2563EB;
+      --accent2:#1D4ED8;
+      --green:  #16A34A;
+      --light:  #EFF6FF;
+      --gray:   #64748B;
+      --border: #CBD5E1;
+      --text:   #1E293B;
+      --muted:  #94A3B8;
+      --white:  #ffffff;
+      --bg:     #F8FAFC;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    /* ── HERO ─────────────────────────────────────── */
+    .hero {
+      background: var(--navy);
+      padding: 72px 40px 56px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(37,99,235,0.35) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-tag {
+      display: inline-block;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #93C5FD;
+      background: rgba(37,99,235,0.18);
+      border: 1px solid rgba(147,197,253,0.3);
+      padding: 6px 18px;
+      border-radius: 100px;
+      margin-bottom: 28px;
+    }
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(36px, 6vw, 64px);
+      font-weight: 900;
+      color: var(--white);
+      line-height: 1.1;
+      margin-bottom: 16px;
+    }
+    .hero h1 span { color: #60A5FA; }
+    .hero-sub {
+      font-size: 15px;
+      color: #93C5FD;
+      letter-spacing: 0.06em;
+      margin-bottom: 10px;
+    }
+    .hero-date {
+      font-size: 13px;
+      color: #64748B;
+    }
+
+    /* ── PARA ─────────────────────────────────────── */
+    .para-bar {
+      background: var(--light);
+      border-bottom: 1px solid var(--border);
+      padding: 18px 40px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .para-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--accent);
+      white-space: nowrap;
+    }
+    .para-name {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--navy);
+    }
+    .para-loc {
+      font-size: 13px;
+      color: var(--gray);
+    }
+
+    /* ── LAYOUT ───────────────────────────────────── */
+    .container {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    .section {
+      padding: 52px 0 0;
+    }
+    .section:last-of-type { padding-bottom: 72px; }
+
+    .section-title {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+    .section-heading {
+      font-family: 'Playfair Display', serif;
+      font-size: 26px;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 6px;
+    }
+    .divider {
+      width: 48px;
+      height: 3px;
+      background: var(--accent);
+      border-radius: 2px;
+      margin-bottom: 24px;
+    }
+
+    .overview-text {
+      font-size: 15px;
+      line-height: 1.8;
+      color: #475569;
+      max-width: 720px;
+    }
+    .overview-text b { color: var(--navy); }
+
+    /* ── DELIVERABLES ─────────────────────────────── */
+    .deliverables { display: flex; flex-direction: column; gap: 12px; }
+
+    .card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 22px 24px;
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+      transition: box-shadow .2s, transform .2s;
+    }
+    .card:hover {
+      box-shadow: 0 8px 32px rgba(37,99,235,0.10);
+      transform: translateY(-2px);
+    }
+    .card-num {
+      width: 40px;
+      height: 40px;
+      min-width: 40px;
+      background: var(--accent);
+      color: var(--white);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 16px;
+    }
+    .card-title {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 6px;
+    }
+    .card-desc {
+      font-size: 13.5px;
+      color: #64748B;
+      line-height: 1.7;
+    }
+
+    /* ── INVESTMENT ───────────────────────────────── */
+    .inv-table {
+      width: 100%;
+      border-collapse: collapse;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      margin-bottom: 28px;
+    }
+    .inv-table thead tr {
+      background: var(--navy);
+      color: var(--white);
+    }
+    .inv-table th {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 14px 18px;
+      text-align: left;
+    }
+    .inv-table th:last-child { text-align: center; }
+    .inv-table tbody tr:nth-child(even) { background: var(--light); }
+    .inv-table tbody tr:nth-child(odd)  { background: var(--white); }
+    .inv-table td {
+      font-size: 13.5px;
+      color: var(--text);
+      padding: 13px 18px;
+      border-top: 1px solid var(--border);
+    }
+    .inv-table td:last-child {
+      text-align: center;
+      font-weight: 700;
+      color: var(--green);
+      font-size: 13px;
+    }
+
+    .price-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+    .price-box {
+      border-radius: 14px;
+      padding: 28px 24px;
+      text-align: center;
+    }
+    .price-box.blue { background: var(--light); border: 2px solid var(--accent); }
+    .price-box.green-box { background: #F0FDF4; border: 2px solid #86EFAC; }
+    .price-box-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gray);
+      margin-bottom: 12px;
+    }
+    .price-amount {
+      font-family: 'Playfair Display', serif;
+      font-size: 44px;
+      font-weight: 900;
+      color: var(--accent);
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+    .price-amount.green-amt { color: var(--green); }
+    .price-note {
+      font-size: 12px;
+      color: var(--gray);
+    }
+    .payment-row {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 4px;
+    }
+    .payment-item {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      font-size: 14px;
+      color: var(--text);
+    }
+    .badge {
+      display: inline-block;
+      padding: 4px 12px;
+      border-radius: 100px;
+      font-size: 12px;
+      font-weight: 600;
+    }
+    .badge-blue  { background: #DBEAFE; color: var(--accent); }
+    .badge-green { background: #DCFCE7; color: var(--green); }
+
+    /* ── TIMELINE ─────────────────────────────────── */
+    .timeline { display: flex; flex-direction: column; gap: 0; }
+    .tl-item {
+      display: flex;
+      gap: 20px;
+      align-items: stretch;
+    }
+    .tl-left {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 52px;
+      min-width: 52px;
+    }
+    .tl-dot {
+      width: 14px;
+      height: 14px;
+      background: var(--accent);
+      border-radius: 50%;
+      border: 3px solid var(--light);
+      box-shadow: 0 0 0 2px var(--accent);
+      flex-shrink: 0;
+      margin-top: 4px;
+    }
+    .tl-line {
+      width: 2px;
+      background: var(--border);
+      flex: 1;
+      margin-top: 4px;
+    }
+    .tl-item:last-child .tl-line { display: none; }
+    .tl-content {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 18px 20px;
+      margin-bottom: 12px;
+      flex: 1;
+    }
+    .tl-phase {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 4px;
+    }
+    .tl-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 4px;
+    }
+    .tl-desc {
+      font-size: 13px;
+      color: var(--gray);
+      line-height: 1.6;
+    }
+
+    /* ── NEEDS ────────────────────────────────────── */
+    .needs-box {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 22px 24px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .needs-icon {
+      width: 40px;
+      height: 40px;
+      min-width: 40px;
+      background: #DCFCE7;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+    }
+    .needs-text {
+      font-size: 15px;
+      color: var(--text);
+    }
+
+    /* ── TERMS ────────────────────────────────────── */
+    .terms-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .term-row {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px 20px;
+    }
+    .term-label {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--navy);
+      min-width: 130px;
+      white-space: nowrap;
+      padding-top: 1px;
+    }
+    .term-detail {
+      font-size: 13.5px;
+      color: var(--gray);
+      line-height: 1.6;
+    }
+
+    /* ── FOOTER ───────────────────────────────────── */
+    footer {
+      background: var(--navy);
+      text-align: center;
+      padding: 36px 24px;
+      margin-top: 60px;
+    }
+    footer p {
+      font-size: 14px;
+      color: #93C5FD;
+      line-height: 1.7;
+      max-width: 560px;
+      margin: 0 auto;
+    }
+    footer p b { color: var(--white); }
+
+    /* ── ANIMATIONS ───────────────────────────────── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .hero > * { animation: fadeUp .7s ease both; }
+    .hero-tag  { animation-delay: .1s; }
+    .hero h1   { animation-delay: .2s; }
+    .hero-sub  { animation-delay: .3s; }
+    .hero-date { animation-delay: .4s; }
+
+    /* ── RESPONSIVE ───────────────────────────────── */
+    @media (max-width: 600px) {
+      .hero { padding: 52px 24px 44px; }
+      .para-bar { flex-direction: column; align-items: flex-start; gap: 4px; padding: 16px 24px; }
+      .price-grid { grid-template-columns: 1fr; }
+      .inv-table th:nth-child(2),
+      .inv-table td:nth-child(2) { display: none; }
+      .term-row { flex-direction: column; gap: 4px; }
+      .term-label { min-width: unset; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-tag">Proposta Comercial</div>
+    <h1>Website de Vendas<br><span>para Ebook</span></h1>
+    <p class="hero-sub">Landing Page &nbsp;·&nbsp; Stripe &nbsp;·&nbsp; Entrega Automatica por E-mail</p>
+    <p class="hero-date">13 de marco de 2025</p>
+  </div>
+
+  <!-- PARA -->
+  <div class="para-bar">
+    <span class="para-label">Elaborado para</span>
+    <span class="para-name">Kelly Moraes</span>
+    <span class="para-loc">· Estados Unidos</span>
+  </div>
+
+  <div class="container">
+
+    <!-- VISAO GERAL -->
+    <div class="section">
+      <p class="section-title">01 &nbsp;/&nbsp; Visao Geral</p>
+      <h2 class="section-heading">Visao Geral do Projeto</h2>
+      <div class="divider"></div>
+      <p class="overview-text">
+        Esta proposta abrange o design completo, desenvolvimento e entrega de uma <b>landing page de vendas profissional</b>
+        para o ebook da Kelly em portugues — um guia passo a passo para brasileiros declararem o imposto de renda
+        americano (IRS) de forma independente, sem precisar contratar contador.
+        O website sera desenvolvido com foco em conversao de visitantes em compradores, integrado ao <b>Stripe</b>
+        para processamento seguro de pagamentos, e configurado para entregar o ebook automaticamente
+        apos a confirmacao da compra.
+      </p>
+    </div>
+
+    <!-- ESCOPO -->
+    <div class="section">
+      <p class="section-title">02 &nbsp;/&nbsp; Escopo</p>
+      <h2 class="section-heading">Escopo do Trabalho</h2>
+      <div class="divider"></div>
+      <div class="deliverables">
+        <div class="card">
+          <div class="card-num">1</div>
+          <div>
+            <div class="card-title">Landing Page de Alta Conversao</div>
+            <div class="card-desc">Pagina completa desenvolvida com principios de resposta direta: dores, medos, prova social e CTA. 100% responsiva — otimizada para celular e desktop. Secoes: Hero, Problema/Medo, Solucao, O que esta dentro, Depoimentos, Garantia e Botao de Compra.</div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-num">2</div>
+          <div>
+            <div class="card-title">Integracao com Stripe</div>
+            <div class="card-desc">Checkout seguro do Stripe incorporado diretamente na pagina. Webhook configurado para detectar pagamentos confirmados em tempo real. Redirecionamento automatico para a pagina de obrigado apos a compra.</div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-num">3</div>
+          <div>
+            <div class="card-title">Entrega Automatica do Ebook por E-mail</div>
+            <div class="card-desc">Apos a confirmacao do webhook do Stripe, o cliente recebe automaticamente um e-mail com o link para baixar o ebook. Template de e-mail em portugues, com identidade visual da Kelly. Nenhum trabalho manual necessario apos a configuracao inicial.</div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-num">4</div>
+          <div>
+            <div class="card-title">Pagina de Obrigado (Thank-You Page)</div>
+            <div class="card-desc">Pagina de confirmacao exibida apos a compra, com visual personalizado. Pode incluir mensagem de upsell ou proximos passos para o comprador.</div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-num">5</div>
+          <div>
+            <div class="card-title">Publicacao e Lancamento (Go-Live)</div>
+            <div class="card-desc">Deploy completo no servidor/dominio da Kelly. Teste de todo o fluxo de compra de ponta a ponta antes do lancamento.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- INVESTIMENTO -->
+    <div class="section">
+      <p class="section-title">03 &nbsp;/&nbsp; Investimento</p>
+      <h2 class="section-heading">Investimento</h2>
+      <div class="divider"></div>
+
+      <table class="inv-table">
+        <thead>
+          <tr>
+            <th>Entregavel</th>
+            <th>Descricao</th>
+            <th>Incluso</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Landing Page de Vendas</td><td>Design + desenvolvimento responsivo completo</td><td>SIM</td></tr>
+          <tr><td>Integracao Stripe</td><td>Checkout + webhook listener</td><td>SIM</td></tr>
+          <tr><td>Entrega Automatica por E-mail</td><td>Gatilho de e-mail + link do ebook</td><td>SIM</td></tr>
+          <tr><td>Pagina de Obrigado</td><td>Pagina de confirmacao pos-compra</td><td>SIM</td></tr>
+          <tr><td>Publicacao no Servidor</td><td>Configuracao no servidor/dominio da Kelly</td><td>SIM</td></tr>
+          <tr><td>Suporte por 30 Dias</td><td>Correcao de bugs e ajustes pos-lancamento</td><td>SIM</td></tr>
+        </tbody>
+      </table>
+
+      <div class="price-grid">
+        <div class="price-box blue">
+          <div class="price-box-label">Valor Total do Projeto</div>
+          <div class="price-amount">$800</div>
+          <div class="price-note">Pagamento unico · Todos os entregaveis inclusos</div>
+        </div>
+        <div class="price-box green-box">
+          <div class="price-box-label">Forma de Pagamento</div>
+          <div class="payment-row">
+            <div class="payment-item">
+              <span class="badge badge-blue">$400,00</span>
+              <span style="font-size:13px;color:#475569;">na assinatura do contrato (50%)</span>
+            </div>
+            <div class="payment-item">
+              <span class="badge badge-green">$400,00</span>
+              <span style="font-size:13px;color:#475569;">na entrega final (50%)</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CRONOGRAMA -->
+    <div class="section">
+      <p class="section-title">04 &nbsp;/&nbsp; Cronograma</p>
+      <h2 class="section-heading">Cronograma — 6 Dias Uteis</h2>
+      <div class="divider"></div>
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-left"><div class="tl-dot"></div><div class="tl-line"></div></div>
+          <div class="tl-content">
+            <div class="tl-phase">Dia 1</div>
+            <div class="tl-title">Inicio do Projeto</div>
+            <div class="tl-desc">Contrato aprovado · Primeiro pagamento recebido · Kelly envia o arquivo PDF do ebook</div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-left"><div class="tl-dot"></div><div class="tl-line"></div></div>
+          <div class="tl-content">
+            <div class="tl-phase">Dias 2 – 3</div>
+            <div class="tl-title">Design e Desenvolvimento</div>
+            <div class="tl-desc">Design da landing page e desenvolvimento front-end completo</div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-left"><div class="tl-dot"></div><div class="tl-line"></div></div>
+          <div class="tl-content">
+            <div class="tl-phase">Dia 4</div>
+            <div class="tl-title">Integracao Stripe</div>
+            <div class="tl-desc">Configuracao do checkout + webhook + disparo automatico de e-mail com o ebook</div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-left"><div class="tl-dot"></div><div class="tl-line"></div></div>
+          <div class="tl-content">
+            <div class="tl-phase">Dia 5</div>
+            <div class="tl-title">Testes e QA</div>
+            <div class="tl-desc">Teste completo do fluxo de compra de ponta a ponta · Verificacao em mobile e desktop</div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-left"><div class="tl-dot"></div><div class="tl-line"></div></div>
+          <div class="tl-content">
+            <div class="tl-phase">Dia 6</div>
+            <div class="tl-title">Publicacao e Entrega</div>
+            <div class="tl-desc">Site no ar · Apresentacao para a Kelly · Pagamento final realizado</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- NECESSARIO -->
+    <div class="section">
+      <p class="section-title">05 &nbsp;/&nbsp; Necessario</p>
+      <h2 class="section-heading">O que a Kelly Precisa Fornecer</h2>
+      <div class="divider"></div>
+      <div class="needs-box">
+        <div class="needs-icon">📄</div>
+        <div class="needs-text">Arquivo final do ebook em formato <b>PDF</b></div>
+      </div>
+    </div>
+
+    <!-- TERMOS -->
+    <div class="section">
+      <p class="section-title">06 &nbsp;/&nbsp; Termos</p>
+      <h2 class="section-heading">Termos e Condicoes</h2>
+      <div class="divider"></div>
+      <div class="terms-grid">
+        <div class="term-row">
+          <span class="term-label">Fora do escopo:</span>
+          <span class="term-detail">Funcionalidades adicionais, paginas extras ou integracoes nao listadas acima serao orcadas separadamente.</span>
+        </div>
+        <div class="term-row">
+          <span class="term-label">Suporte:</span>
+          <span class="term-detail">30 dias de suporte pos-lancamento para correcao de bugs inclusos. Manutencao continua disponivel mediante contrato separado.</span>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /container -->
+
+  <!-- FOOTER -->
+  <footer>
+    <p>Caso esteja de acordo com esta proposta,<br><b>seguimos com a primeira parte do pagamento de $400,00 para darmos inicio ao projeto.</b></p>
+  </footer>
+
+</body>
+</html>
